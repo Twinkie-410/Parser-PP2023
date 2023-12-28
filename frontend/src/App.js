@@ -1,14 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from "react-router-dom"
+import Main from './components/pages/Main/Main';
 
 function App() {
   return (
-    <div className="">
-      <header className="text-center">
-        <span className='text-red-500'>pivo </span>
-        ghgh
-      </header>
-    </div>
+    <>
+      <Routes>
+
+        <Route path='*' element={<Main />} />
+
+      </Routes>
+    </>
   );
 }
 
