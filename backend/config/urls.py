@@ -4,11 +4,11 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
-
 api = 'api/'
 urlpatterns = [
     path(api + 'admin/', admin.site.urls),
     path(api + 'user/', include("user.urls")),
+    # path(r'^auth/', include('djoser.urls')),
 ]
 
 schema_view = get_schema_view(
