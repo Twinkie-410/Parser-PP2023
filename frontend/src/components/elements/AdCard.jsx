@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 function AdCard() {
 
     return (
@@ -14,7 +16,7 @@ function AdCard() {
                     <div className="mt-[15px]">Жанр</div>
                 </div>
                 <span className="flex justify-center my-[15px]">
-                    <button className="py-[7px] bg-[#828282] px-[35px] text-[24px] hover:text-blue-300">Узнать больше</button>
+                    <NavLink to="/advertisement" className="py-[7px] bg-[#828282] px-[35px] text-[24px] hover:text-blue-300">Узнать больше</NavLink>
                 </span>
                 
             </div>

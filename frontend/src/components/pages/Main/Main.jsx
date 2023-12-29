@@ -26,14 +26,14 @@ function Main () {
                 </div>
             </div>
             <div className="w-[80%] max-w-[1520px] mx-auto">
-                <h1 className="mt-[50px] text-3xl">Выбор редакции</h1>
+                <h1 className="mt-[50px] text-[48px]">Выбор редакции</h1>
                 <div className="flex justify-center gap-[20px] w-[100%] max-w-[1520px] mx-auto">
                     <EditorsChoiceCard/>
                     <EditorsChoiceCard/>
                     {/* <EditorsChoiceCard/> */}
                 </div>
 
-                <h1 className="mt-[50px] text-3xl">Объявления сообщества</h1>
+                <h1 className="mt-[50px] text-[48px]">Объявления сообщества</h1>
                 <div className="flex justify-center gap-[20px] flex-wrap mt-[50px] w-[100%] max-w-[1520px] mx-auto">
                     <AdCard/>
                     <AdCard/>
