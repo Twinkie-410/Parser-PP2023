@@ -1,26 +1,33 @@
 import { NavLink } from "react-router-dom"
 
-function Header() {
+function LoggedHeader() {
     return(
         <header className="bg-[#535353] ">
             <div className="text-center align-center w-[80%] max-w-[1520px] mx-auto">
                 <ul className="flex flex-row justify-center gap-[20px] align-middle items-center flex-wrap text-white text-2xl">
-                    <li className="w-[14%]">
-                        <span className="mx-[20px]">
+                <li className="w-[14%]">
+                        <span className="ml-[20px]">
                             Лого
                         </span>
+                    </li>
+                    <li className="w-[14%]">
+                        {/* <span className="mx-[20px]">
+                            Лого
+                        </span> */}
                         Главная
                     </li>
                     <li className="w-[14%]">
                         Профиль
                     </li>
-                    <li className="w-[14%]">
+                    <li className="w-[14%] invisible">
                         <NavLink to="/myprofile" className="hover:text-blue-300">
-                            Вход
+                            Выйти
                         </NavLink>
                     </li>
                     <li className="w-[14%]">
-                        Регистрация
+                        <NavLink to="/" className="hover:text-blue-300">
+                            Выйти
+                        </NavLink>
                     </li>
                     <li className="w-[14%] my-[14px]">
                         <form className="flex flex-row relative bg-[#D9D9D9]">
@@ -36,7 +43,7 @@ function Header() {
                         </form> 
                     </li>
                 </ul>
-        
+                
             </div>
         </header>
         
@@ -44,4 +51,4 @@ function Header() {
     )
 }
 
-export default Header
+export default LoggedHeader
