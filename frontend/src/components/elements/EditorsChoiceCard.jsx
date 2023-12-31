@@ -8,8 +8,8 @@ function EditorsChoiceCard() {
                     <div className="mt-[15px]">Описание книги или отзыв критика</div>
                 </div>
                 <div className="flex justify-end mr-[26px] mb-[18px] gap-[20px] text-[24px]">
-                    <button>Не нравится</button>
-                    <button className="py-[10px] bg-[#828282] px-[23px]">Нравится</button>
+                    <button className="hover:text-blue-500">Не нравится</button>
+                    <button className="py-[10px] bg-[#828282] px-[23px] hover:text-blue-300">Нравится</button>
                 </div>
                 
             </div>
