@@ -1,6 +1,7 @@
 import LoggedHeader from "../../base/LoggedHeader"
 import AdCard from "../../elements/AdCard"
 import Footer from "../../base/Footer"
+import React from "react"
 
 function MyProfile () {
     return (

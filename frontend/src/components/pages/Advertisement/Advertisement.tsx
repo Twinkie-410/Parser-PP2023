@@ -1,5 +1,6 @@
 import LoggedHeader from "../../base/LoggedHeader"
 import Footer from "../../base/Footer"
+import React from "react"
 
 function Advertisement() {
     return (

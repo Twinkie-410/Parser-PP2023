@@ -1,3 +1,4 @@
+import React from "react"
 import { NavLink } from "react-router-dom"
 
 function Header() {
@@ -20,7 +21,9 @@ function Header() {
                         </NavLink>
                     </li>
                     <li className="w-[14%]">
-                        Регистрация
+                        <NavLink to="/register" className="hover:text-blue-300">
+                            Регистрация
+                        </NavLink>
                     </li>
                     <li className="w-[14%] my-[14px]">
                         <form className="flex flex-row relative bg-[#D9D9D9]">
