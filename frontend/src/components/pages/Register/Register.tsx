@@ -9,11 +9,11 @@ function Register() {
 
     const dispatch = useAppDispatch()
     function useHandleReg() {
-        // const {result} = useAppSelector(state => state.registerUserReducer)
+        const {result} = useAppSelector(state => state.registerUserReducer)
         useEffect(() => {
             dispatch(postRegisterUser('12323', 'use12r@example.com', 'Velden228', 'Velden228'))
         }, [])
-        // console.log(result)
+        console.log(result)
     }
     const test = useHandleReg()
 

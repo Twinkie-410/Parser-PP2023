@@ -32,7 +32,8 @@ export const postRegisterUser = (
 ) => async (dispatch: AppDispatch) => {
     try {
         dispatch(registerUserSlice.actions.userRegister())
-        const response = await API.post<IUserRegister>(`/user/register/`, [{username, email, password, password2}],)
+        const response = await API.post<IUserRegister>(`/user/register/`, {username, email, password, password2},)
+        console.log(response.headers)
         dispatch(registerUserSlice.actions.userRegisterSuccess(response.data))
     } catch (e) {
         dispatch(registerUserSlice.actions.userRegisterError(getErrorMessage(e)))
