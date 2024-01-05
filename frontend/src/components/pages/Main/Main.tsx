@@ -2,8 +2,20 @@ import Header from "../../base/Header"
 import EditorsChoiceCard from "../../elements/EditorsChoiceCard"
 import AdCard from "../../elements/AdCard"
 import Footer from "../../base/Footer"
+import React, { useEffect } from "react"
+import { getUserList, postRegisterUser } from "../../../store/actionCreators/UserAPI"
+import { useAppDispatch, useAppSelector } from "../../../store/hooks/redux"
 
 function Main () {
+
+    const dispatch= useAppDispatch()
+    const {results} = useAppSelector(state => state.userPageReducer)
+    useEffect( () => {
+    dispatch(getUserList(1))
+  }, [])
+
+  console.log(results)
+
     return (
         <>
             <Header/>

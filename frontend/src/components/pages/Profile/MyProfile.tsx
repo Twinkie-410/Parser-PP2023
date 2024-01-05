@@ -1,6 +1,8 @@
 import LoggedHeader from "../../base/LoggedHeader"
 import AdCard from "../../elements/AdCard"
 import Footer from "../../base/Footer"
+import React from "react"
+import { NavLink } from "react-router-dom"
 
 function MyProfile () {
     return (
@@ -12,7 +14,11 @@ function MyProfile () {
                         <svg width="340" height="400" viewBox="0 0 340 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="340" height="400" fill="#D9D9D9"/>
                         </svg>
-                        <button className="py-[7px] bg-[#D9D9D9] px-[35px] text-[24px] mt-[20px] hover:text-blue-300">Редактировать</button>
+                        <button className="py-[7px] bg-[#D9D9D9] px-[35px] text-[24px] mt-[20px] hover:text-blue-300">
+                            <NavLink to={"/editprofile"}>
+                                Редактировать
+                            </NavLink>
+                        </button>
                     </div>
                     <div className="text-[32px]">
                         <ul className="flex flex-col gap-[10px]">
