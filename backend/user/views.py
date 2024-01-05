@@ -24,7 +24,7 @@ from mailings.email_verification import send_verify_email
 from mailings.reset_password import send_reset_password
 from user.serializers import UserSerializer, UserListRegisterSerializer, ChangePasswordSerializer, LoginSerializer, \
     LogoutSerializer, EmailVerifySerializer, RequestPasswordResetSerializer, SetNewPasswordSerializer, \
-    ChangeEmailSerializer
+    ChangeEmailSerializer, UserRegisterSerializer
 
 
 class UserListAPIView(ListAPIView):
@@ -40,7 +40,7 @@ class UserDetailAPIView(RetrieveUpdateDestroyAPIView):
 
 class UserRegisterAPIView(CreateAPIView):
     permission_classes = []
-    serializer_class = UserListRegisterSerializer
+    serializer_class = UserRegisterSerializer
     queryset = get_user_model().objects.all()
 
     def post(self, request, *args, **kwargs):
@@ -50,8 +50,9 @@ class UserRegisterAPIView(CreateAPIView):
         serializer.save()
         user_data = serializer.data
 
-        for i, user in enumerate(users):
-            send_verify_email(user_data[i], request)
+        # for i, user in enumerate(users):
+        #     send_verify_email(user_data[i], request)
+        send_verify_email(user_data, request)
 
         return Response(user_data, status=status.HTTP_201_CREATED)
 
