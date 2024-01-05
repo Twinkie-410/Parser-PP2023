@@ -1,8 +1,15 @@
 import LoggedHeader from "../../base/LoggedHeader"
 import Footer from "../../base/Footer"
-import React from "react"
+import React, { useState } from "react"
 
 function Advertisement() {
+
+    const [contact, setContact] = useState(false)
+
+    function showContact() {
+        setContact(!contact)
+    }
+    
     return (
         <>
             <LoggedHeader/>
@@ -74,11 +81,24 @@ function Advertisement() {
                     <h1 className="mt-[50px] text-[48px]">Владелец</h1>
                 </div>
                 <div className="flex flex-row justify-between align-center mt-[50px]">
-                    <h1 className="text-[32px]">Имя Фамилия</h1>
-                    <h1 className="text-[32px]">Город: Екатеринбург</h1>
-                    <div className="flex gap-[18px] align-center">
+                    <div className="">
+                        <h1 className="text-[32px]">Имя Фамилия</h1>
+                        {contact && (
+                            <h1 className="text-[32px] mt-[40px]">Эл. почта: ааа@aaa</h1>
+                        )} 
+                        
+                    </div>
+                    <div className="">
+                        <h1 className="text-[32px]">Город: Екатеринбург</h1>
+                        {contact && (
+                            <h1 className="text-[32px] mt-[40px]">8(999)999 99 99</h1>
+                        )} 
+                    </div>
+                    <div className="align-center">
                         <button className="py-[7px] bg-[#D9D9D9] px-[70px] text-[24px] hover:text-blue-300">Профиль</button>
-                        <button className="py-[7px] bg-[#4F4F4F] px-[70px] text-[24px] hover:text-blue-300">Связаться</button>
+                        <button className="py-[7px] bg-[#4F4F4F] px-[70px] text-[24px] hover:text-blue-300 ml-[18px]"
+                            onClick={showContact}
+                        >{!contact? 'Посмотреть контакты' : 'Скрыть контакты'}</button>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ import Register from './components/pages/Register/Register';
 import { userPageSlice } from './store/reducers/GetUserPage';
 import { useAppDispatch, useAppSelector } from './store/hooks/redux';
 import { getUserList } from './store/actionCreators/UserAPI';
+import EditProfile from './components/pages/Profile/EditProfile';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/myprofile' element={<MyProfile />} />
         <Route path='/advertisement' element={<Advertisement/>} />
         <Route path='/register' element={<Register/>} />
+        <Route path='/editprofile' element={<EditProfile/>} />
         
       </Routes>
     </>
