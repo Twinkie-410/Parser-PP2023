@@ -48,9 +48,12 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
     "rest_framework_json_api",
+    'corsheaders',
 
     'user.apps.UserConfig',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

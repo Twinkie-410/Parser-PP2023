@@ -26,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = [
             "id",
+            "email",
             "is_staff",
             "is_active",
             "is_verified",
@@ -55,6 +56,12 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({"ERROR": "Password fields didn't match"})
 
         return attrs
+
+    def validate_username(self, value):
+        if len(value.split(' ')) > 1:
+            raise serializers.ValidationError({"ERROR": "Username must be without spaces"})
+
+        return value
 
     class Meta:
         model = get_user_model()
@@ -176,6 +183,8 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 
 class ChangeEmailSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
     class Meta:
         model = get_user_model()
         fields = ["email"]

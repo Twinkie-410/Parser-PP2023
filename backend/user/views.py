@@ -156,15 +156,15 @@ class ChangeEmailAPIView(GenericAPIView):
     """
     Changing email for auth users in update profile page.
     """
-
+    permission_classes = [IsAuthenticated]
     serializer_class = ChangeEmailSerializer
 
     def post(self, request):
         user = request.user
-        new_email = request.data.email
+        new_email = request.data["email"]
 
-        if user['email']:
-            change_email(user['email'], new_email, request)
+        if user.email:
+            change_email(user.email, new_email, request)
 
         return Response({"OK": "Check new email to confirm email change"},
                         status=status.HTTP_200_OK)
