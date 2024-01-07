@@ -16,7 +16,7 @@ urlpatterns = [
     path("", UserListAPIView.as_view(), name="users"),
     path("<slug:username>", UserDetailAPIView.as_view(), name="user-detail"),
     path("change-password/", ChangePasswordAPIView.as_view(), name="change-password"),
-    path("change-email/", ChangeEmailAPIView.as_view(), name="change-email"),
+    # path("change-email/", ChangeEmailAPIView.as_view(), name="change-email"),
 
     # Reset password
     path("request-pass-reset/", RequestPasswordResetAPIView.as_view(), name="request-pass-reset"),
