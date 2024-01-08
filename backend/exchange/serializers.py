@@ -13,7 +13,7 @@ class ExchangeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Exchange
-        fields = ["id", "username", "book", "price", "created_at", "updated_at", "description"]
+        fields = ["id", "username", "book", "is_active", "price", "created_at", "updated_at", "description"]
         read_only_fields = ["id", "created_at", "updated_at"]
         extra_kwargs = {"book": {"required": True}}
 
