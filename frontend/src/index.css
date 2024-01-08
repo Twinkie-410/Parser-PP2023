@@ -5,3 +5,10 @@
 * {
     font-family: Inter;
 }
+
+@layer components {
+    .reg-input {
+      @apply bg-[#A0A0A0] placeholder:text-white placeholder:text-[24px] 
+        max-w-[720px] w-[100%] mx-auto py-[15px] px-[45px] text-[24px] text-white mt-[35px];
+    }
+  }

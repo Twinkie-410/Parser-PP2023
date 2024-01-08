@@ -8,13 +8,13 @@ import { useAppDispatch, useAppSelector } from "../../../store/hooks/redux"
 
 function Main () {
 
-    const dispatch= useAppDispatch()
-    const {results} = useAppSelector(state => state.userPageReducer)
-    useEffect( () => {
-    dispatch(getUserList(1))
-  }, [])
+//     const dispatch= useAppDispatch()
+//     const {results} = useAppSelector(state => state.userPageReducer)
+//     useEffect( () => {
+//     dispatch(getUserList(1))
+//   }, [])
 
-  console.log(results)
+//   console.log(results)
 
     return (
         <>
