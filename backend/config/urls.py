@@ -9,7 +9,7 @@ urlpatterns = [
     path(api + 'admin/', admin.site.urls),
     path(api + 'user/', include("user.urls")),
     path(api + 'exchange/', include("exchange.urls")),
-    # path(api + 'book/', include("user.urls")),
+    path(api + 'profile/', include("profiles.urls")),
 
 ]
 
