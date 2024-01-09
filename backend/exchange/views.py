@@ -1,7 +1,6 @@
-from rest_framework import status
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.response import Response
-
 from exchange.models import Exchange
 from exchange.serializers import ExchangeSerializer
 
@@ -9,10 +8,16 @@ from exchange.serializers import ExchangeSerializer
 class ExchangeListAPIView(ListAPIView):
     serializer_class = ExchangeSerializer
     queryset = Exchange.objects.all()
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ["book__title", "book__author", "book__genre"]
+    ordering = ["-updated_at"]
 
 
 class ExchangeUserAllAPIView(ListAPIView):
     serializer_class = ExchangeSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ["book__title", "book__author", "book__genre"]
+    ordering = ["-updated_at"]
 
     def get_queryset(self):
         username = self.kwargs["username"]
@@ -21,6 +26,9 @@ class ExchangeUserAllAPIView(ListAPIView):
 
 class ExchangeUserActiveAPIView(ListAPIView):
     serializer_class = ExchangeSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ["book__title", "book__author", "book__genre"]
+    ordering = ["-updated_at"]
 
     def get_queryset(self):
         username = self.kwargs["username"]
@@ -29,6 +37,9 @@ class ExchangeUserActiveAPIView(ListAPIView):
 
 class ExchangeUserHistoryAllAPIView(ListAPIView):
     serializer_class = ExchangeSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ["book__title", "book__author", "book__genre"]
+    ordering = ["-updated_at"]
 
     def get_queryset(self):
         username = self.kwargs["username"]
