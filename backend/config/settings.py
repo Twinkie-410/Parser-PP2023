@@ -49,8 +49,12 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
     "rest_framework_json_api",
     'corsheaders',
+    "phonenumber_field",
 
     'user.apps.UserConfig',
+    'exchange.apps.ExchangeConfig',
+    'book.apps.BookConfig',
+    'profiles.apps.ProfilesConfig'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +72,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = ('http://localhost:3000',)
+PHONENUMBER_DEFAULT_FORMAT = "INTERNATIONAL"
+
+PHONENUMBER_DEFAULT_REGION = "RU"
 
 ROOT_URLCONF = 'config.urls'
 

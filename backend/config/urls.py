@@ -8,7 +8,9 @@ api = 'api/'
 urlpatterns = [
     path(api + 'admin/', admin.site.urls),
     path(api + 'user/', include("user.urls")),
-    # path(r'^auth/', include('djoser.urls')),
+    path(api + 'exchange/', include("exchange.urls")),
+    path(api + 'profile/', include("profiles.urls")),
+
 ]
 
 schema_view = get_schema_view(

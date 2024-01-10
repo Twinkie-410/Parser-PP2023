@@ -1,4 +1,5 @@
 import logging
+
 import jwt
 from django.contrib.auth import get_user_model
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
@@ -7,13 +8,7 @@ from django.utils.http import urlsafe_base64_decode
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
-from rest_framework.generics import (ListCreateAPIView,
-                                     RetrieveUpdateDestroyAPIView,
-                                     ListAPIView,
-                                     UpdateAPIView,
-                                     RetrieveAPIView,
-                                     CreateAPIView,
-                                     GenericAPIView)
+from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -22,39 +17,9 @@ from config import settings
 from mailings.change_email import change_email
 from mailings.email_verification import send_verify_email
 from mailings.reset_password import send_reset_password
-from user.serializers import UserSerializer, UserListRegisterSerializer, ChangePasswordSerializer, LoginSerializer, \
+from user.serializers import ChangePasswordSerializer, LoginSerializer, \
     LogoutSerializer, EmailVerifySerializer, RequestPasswordResetSerializer, SetNewPasswordSerializer, \
-    ChangeEmailSerializer, UserRegisterSerializer
-
-
-class UserListAPIView(ListAPIView):
-    serializer_class = UserSerializer
-    queryset = get_user_model().objects.all()
-
-
-class UserDetailAPIView(RetrieveUpdateDestroyAPIView):
-    serializer_class = UserSerializer
-    queryset = get_user_model().objects.all()
-    lookup_field = "username"
-
-
-class UserRegisterAPIView(CreateAPIView):
-    permission_classes = []
-    serializer_class = UserRegisterSerializer
-    queryset = get_user_model().objects.all()
-
-    def post(self, request, *args, **kwargs):
-        users = request.data
-        serializer = self.serializer_class(data=users)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        user_data = serializer.data
-
-        # for i, user in enumerate(users):
-        #     send_verify_email(user_data[i], request)
-        send_verify_email(user_data, request)
-
-        return Response(user_data, status=status.HTTP_201_CREATED)
+    ChangeEmailSerializer
 
 
 class EmailVerifyAPIView(APIView):
