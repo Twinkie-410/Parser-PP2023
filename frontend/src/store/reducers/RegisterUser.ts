@@ -1,4 +1,4 @@
-import { IUserRegister } from './../models/IUser';
+import { IUserRegister } from '../models/IUser';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface RegisterState {

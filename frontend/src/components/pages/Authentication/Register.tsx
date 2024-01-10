@@ -44,7 +44,7 @@ function Register() {
             <div className="w-[80%] max-w-[820px] mx-auto">
                 <div className="mt-[70px] flex gap-[110px] justify-around items-center">
                     <h1 className="text-[40px]">Регистрация</h1>
-                    <span className="text-[24px] align-bottom bg-[#D9D9D9] px-[30px] py-[7px]">Уже есть аккаунт?</span>
+                    <NavLink to={'/login'} className="text-[24px] align-bottom bg-[#D9D9D9] px-[30px] py-[7px] hover:text-blue-300">Уже есть аккаунт?</NavLink>
                 </div>
                 
                 <form action="" className="mt-[40px] text-center border-solid border-[1px] border-black pt-[33px] pb-[60px]"
@@ -54,7 +54,7 @@ function Register() {
                     <input
                     autoComplete="off"
                     className="reg-input"
-                    placeholder="Логин"
+                    placeholder="Логин*"
                     {...register('username', {
                         required:'Поле обязательно к заполнению',
                     })}
@@ -70,7 +70,7 @@ function Register() {
                     autoComplete="off" 
                     {...register('second_name')}
                     />
-                    <input type="password" placeholder="Пароль" className="reg-input peer-[&:not(:placeholder-shown):not(:focus):invalid]:block peer"
+                    <input type="password" placeholder="Пароль*" className="reg-input peer-[&:not(:placeholder-shown):not(:focus):invalid]:block peer"
                     autoComplete="off"
                     pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}" 
                     {...register('password', {
@@ -90,10 +90,10 @@ function Register() {
                         <p>{errors?.password?.message}</p>
                     </div>
 
-                    <input type="password" placeholder="Повторите пароль" className="reg-input"
+                    <input type="password" placeholder="Повторите пароль*" className="reg-input"
                     autoComplete="off" 
                     {...register('password2', {required: true,
-                    validate: (val : string) => {
+                    validate: () => {
                         if(getValues('password')!== getValues('password2')) {
                             return 'Пароли не совпадают'
                         }
@@ -105,11 +105,11 @@ function Register() {
                     autoComplete="off"
                     />
                     
-                    <input type="email" placeholder="Эл. почта" className="reg-input peer-[&:not(:placeholder-shown):not(:focus):invalid]:block peer"
+                    <input type="email" placeholder="Эл. почта*" className="reg-input peer-[&:not(:placeholder-shown):not(:focus):invalid]:block peer"
                         autoComplete="off" 
                         {...register('email', {required: true,
                         pattern: {
-                            value:/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+                            value:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
                             message:"Введите валидный email"
                         }})}
                     />

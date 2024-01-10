@@ -1,11 +1,13 @@
-import { registerUserReducer } from './reducers/RegisterUserSlice';
+import { logInUserReducer } from './reducers/LogInUser';
+import { registerUserReducer } from './reducers/RegisterUser';
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import {userPageReducer} from "./reducers/GetUserPage"
 
 const rootReducer = combineReducers({
     userPageReducer,
-    registerUserReducer
+    registerUserReducer,
+    logInUserReducer
 })
 
 export const setupStore = () => {
