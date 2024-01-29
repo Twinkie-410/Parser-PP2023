@@ -21,12 +21,12 @@ function LogIn() {
         }, [])
         console.log(result)
     }
-    useHandleReg()
+    // useHandleReg()
 
     const {register, handleSubmit, formState: {errors, isValid}, reset, getValues} = useForm<ILogInForm>({mode: 'onBlur'})
 
     const submit: SubmitHandler<ILogInForm> = data => {
-        
+        dispatch(postLogInUser(data.username, data.password))
         reset()
     }
 

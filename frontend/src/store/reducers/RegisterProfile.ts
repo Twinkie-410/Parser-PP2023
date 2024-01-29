@@ -18,7 +18,7 @@ const initialState: RegisterState= {
     error: ''
 }
 
-export const registerUserSlice = createSlice({
+export const registerProfileSlice = createSlice({
     name: 'postRegisterUser',
     initialState,
     reducers: {
@@ -37,4 +37,4 @@ export const registerUserSlice = createSlice({
     }
 })
 
-export const registerUserReducer = registerUserSlice.reducer
+export const registerProfileReducer = registerProfileSlice.reducer

@@ -1,12 +1,12 @@
 import { logInUserReducer } from './reducers/LogInUser';
-import { registerUserReducer } from './reducers/RegisterUser';
+import { registerProfileReducer } from './reducers/RegisterProfile';
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import {userPageReducer} from "./reducers/GetUserPage"
+import {userPageReducer} from "./reducers/GetProfileList"
 
 const rootReducer = combineReducers({
     userPageReducer,
-    registerUserReducer,
+    registerUserReducer: registerProfileReducer,
     logInUserReducer
 })
 

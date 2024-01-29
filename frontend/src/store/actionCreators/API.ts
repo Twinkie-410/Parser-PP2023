@@ -12,7 +12,7 @@ export const API= axios.create({
     }
 })
 
-// API.interceptors.request.use((config: AxiosRequestConfig) => {
-//     config?.headers?.Authorization: `Bearer ${localStorage.getItem('token')}`
-//     return config
-// })
+API.interceptors.request.use((config) => {
+    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+    return config
+})

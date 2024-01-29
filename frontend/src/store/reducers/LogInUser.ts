@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { IUserRegister } from "../models/IUser"
-import { ILogIn } from "../actionCreators/UserAPI"
+import { ILogInResponse } from "../actionCreators/UserAPI"
 
 interface ILogInState{
-   result: ILogIn
+   result: ILogInResponse
+   isAuth: boolean
    isLoading: boolean
    error: string
 }
@@ -14,6 +14,7 @@ const initialState:ILogInState = {
         password: "",
         tokens: ''
     },
+    isAuth:false,
     isLoading: false,
     error: ''
 }
@@ -23,15 +24,21 @@ export const logInUserSlice= createSlice({
     reducers:{
         userLogIn(state) {
             state.isLoading = true
+            state.isAuth = false
         },
-        userLogInSuccess(state, action: PayloadAction<ILogIn>) {
+        userLogInSuccess(state, action: PayloadAction<ILogInResponse>) {
             state.isLoading= false
             state.error = ''
             state.result= action.payload
+            state.isAuth= true
         },
         userLogInError(state, action: PayloadAction<string>) {
             state.isLoading= false
+            state.isAuth= false
             state.error = action.payload
+        },
+        userLogOut(state) {
+            state.isAuth=false
         }
     }
 })

@@ -10,13 +10,15 @@ function Header() {
                         <span className="mx-[20px]">
                             Лого
                         </span>
-                        Главная
+                        <NavLink to={"/"} className='hover:text-blue-300'>
+                            Главная
+                        </NavLink>
                     </li>
                     <li className="w-[14%]">
                         Профиль
                     </li>
                     <li className="w-[14%]">
-                        <NavLink to="/myprofile" className="hover:text-blue-300">
+                        <NavLink to="/login" className="hover:text-blue-300">
                             Вход
                         </NavLink>
                     </li>

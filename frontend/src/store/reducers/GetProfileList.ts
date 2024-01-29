@@ -19,7 +19,7 @@ const initialState: userState = {
     error: ""
 }
 
-export const userPageSlice= createSlice({
+export const profileListSlice= createSlice({
     name: "getUserPage",
     initialState,
     reducers: {
@@ -38,4 +38,4 @@ export const userPageSlice= createSlice({
     },
 })
 
-export const userPageReducer = userPageSlice.reducer
+export const userPageReducer = profileListSlice.reducer
